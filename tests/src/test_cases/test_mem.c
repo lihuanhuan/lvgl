@@ -17,7 +17,12 @@ void tearDown(void)
 void test_mem_buf_realloc(void)
 {
 #if LV_MEM_CUSTOM == 0
-    void * buf = lv_mem_buf_get(LV_MEM_SIZE + 16384);
+    void * buf = lv_mem_buf_get(64);
+    memset(buf, 0, 64);
+    lv_mem_buf_release(buf);
+    buf = lv_mem_buf_get(LV_MEM_SIZE + 16384);
+    if(buf != NULL)
+        memset(buf, 0, LV_MEM_SIZE + 16384);
     TEST_ASSERT_NULL(buf);
 #endif
 }
