@@ -130,6 +130,15 @@ lv_keyboard_mode_t lv_keyboard_get_mode(const lv_obj_t * kb);
 bool lv_btnmatrix_get_popovers(const lv_obj_t * obj);
 
 /**
+ * Get the whether a control value is enabled or disabled for button of a keyboard
+ * @param obj       pointer to a keyboard object
+ * @param btn_id    the index of a button not counting new line characters.
+ * @param ctrl      control values to check (ORed value can be used)
+ * @return          true: the control attribute is enabled false: disabled
+ */
+bool lv_keyboard_has_btn_ctrl(const lv_obj_t * obj, uint16_t btn_id, lv_btnmatrix_ctrl_t ctrl);
+
+/**
  * Get the current map of a keyboard
  * @param kb pointer to a keyboard object
  * @return the current map

@@ -259,6 +259,13 @@ bool lv_btnmatrix_get_popovers(const lv_obj_t * obj)
     return keyboard->popovers;
 }
 
+bool lv_keyboard_has_btn_ctrl(const lv_obj_t * obj, uint16_t btn_id, lv_btnmatrix_ctrl_t ctrl)
+{
+    LV_ASSERT_OBJ(obj, MY_CLASS);
+    lv_keyboard_t * keyboard = (lv_keyboard_t *)obj;
+    return lv_btnmatrix_has_btn_ctrl((lv_obj_t *)&(keyboard->btnm), btn_id, ctrl);
+}
+
 /*=====================
  * Other functions
  *====================*/
